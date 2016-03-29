@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zero Animation</title>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    #zero {
+     width: 96px;
+    margin: auto;
+    height: 90px;
+    background: url(zero.png) repeat-x;
+    background-position: 0;
+    animation: walk 0.9s steps(14) infinite;
+    position: relative;
+    top: -72px;
+}
+@keyframes walk {
+  0% { background-position:0 }
+  100% { background-position:-1344px }
+}
+
+#sky {
+      background: url(back.png) repeat-X;
+    position: relative;
+    height: 214px;
+    animation: movebg 9s linear infinite;
+}
+#piso {
+    background: url(piso.png) repeat-X;
+    position: absolute;
+    width: 100%;
+    bottom: -15px;
+    animation: movebg 6s linear infinite;
+}
+@keyframes movebg {
+  0% { background-position:550px }
+  100% { background-position:0 }
+}
+</style>
+<body>
+    <div id="sky"> 
+        <div id="piso">
+            <div id="zero">
+            </div>
+        </div>
+    </div>  
+</body>
+</html>
