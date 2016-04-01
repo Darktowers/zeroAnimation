@@ -1,0 +1,96 @@
+@import "normalize.styl"
+@import "nib"
+@import "nib/vendor"
+vendor-prefixes = o ms moz webkit official
+ .sky 
+    background: url(../img/back.png) repeat-X;
+    position: relative;
+    height: 536px;
+    background-position:550px 
+    top: -75;
+    
+.piso 
+    background: url(../img/piso.png) repeat-X;
+    position: absolute;
+    width: 100%;
+    bottom: -15px;
+    height 145px
+    background-position:550px 
+  
+ .animarPiso
+    animation: movebg 6s linear infinite;
+    transition: all 1s ease-in-out;
+ .animarSky
+     animation: movebg 20s ease-in-out infinite;
+     transition: all 0.2s ease-in-out;  
+.zero
+    margin: auto;
+    height: 90px;
+    position: relative;
+    top: -36px;
+    
+    
+.Running
+    width 103px
+    background: url(../img/zero.png) repeat-x;
+    background-position: 0;
+    animation: walk 0.9s steps(14,end) infinite;
+   
+.Static
+    width: 96px;
+    background: url(../img/zeroStatic.png) repeat-x;
+    background-position: 0;
+    animation: static 1.5s steps(6,end) infinite alternate;
+    //animation: saltar 1s steps(6)  linear  infinite alternate;
+    
+.Jump
+    width: 98px !important;
+    height 160px
+    background: url(../img/zeroJump.png) repeat-x;
+    background-position: 0;
+    animation: saltar 1s steps(15) infinite
+    
+    
+.preRun
+    width: 96px;
+    background: url(../img/preRun.png) repeat-x;
+    background-position: 0;
+    animation: preRun 0.5s steps(2,end) infinite alternate;
+    //animation: saltar 1s steps(6)  linear  infinite alternate;
+    
+   
+        
+
+@keyframes walk 
+    0% 
+        background-position:0 
+    100% 
+        background-position:-1442px
+@keyframes saltar 
+    0%
+        top: -108px; 
+        background-position:0
+    50%
+        top:-220px;
+        
+    100%
+        top: -108px;        
+        background-position:-1470px
+@keyframes static 
+    0%
+        background-position:0 
+    100%        
+        background-position:-576px
+         
+@keyframes movebg 
+    0%
+        background-position:550px 
+    100%
+        background-position:0
+@keyframes preRun 
+    0%
+        background-position:0 
+    100%
+        background-position:-196px 
+
+

@@ -3,50 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Zero Animation</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<style>
-    body{
-        margin: 0;
-    }
-    #zero {
-     width: 96px;
-    margin: auto;
-    height: 90px;
-    background: url(zero.png) repeat-x;
-    background-position: 0;
-    animation: walk 0.9s steps(14) infinite;
-    position: relative;
-    top: -72px;
-}
-@keyframes walk {
-  0% { background-position:0 }
-  100% { background-position:-1344px }
-}
 
-#sky {
-      background: url(back.png) repeat-X;
-    position: relative;
-    height: 214px;
-    animation: movebg 9s linear infinite;
-}
-#piso {
-    background: url(piso.png) repeat-X;
-    position: absolute;
-    width: 100%;
-    bottom: -15px;
-    animation: movebg 6s linear infinite;
-}
-@keyframes movebg {
-  0% { background-position:550px }
-  100% { background-position:0 }
-}
-</style>
 <body>
-    <div id="sky"> 
-        <div id="piso">
-            <div id="zero">
+    <div class="sky"> 
+        <div class="piso">
+            <div class="zero Static">
             </div>
         </div>
     </div>  
 </body>
 </html>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+
+    function parar(){
+        $(".zero").removeClass("Running");
+        $(".zero").addClass("Static");
+         $(".sky").removeClass("animarSky")
+        $(".piso").removeClass("animarPiso")
+         $(".zero").removeClass("Jump");
+         
+    }
+    function jump(){
+        $(".zero").removeClass("Static");
+        $(".zero").removeClass("Running");
+        $(".zero").addClass("Jump");
+        $(".sky").addClass("animarSky")
+        $(".piso").addClass("animarPiso")
+    }
+    function run(){
+        $(".zero").removeClass("Static");
+        $(".zero").addClass("Running");
+        $(".sky").addClass("animarSky")
+        $(".piso").addClass("animarPiso")
+    }    
+    function preRun(){
+        $(".zero").removeClass("Static");
+        $(".zero").addClass("preRun");
+        setTimeout(run,500);
+    }
+      
+         
+       $(document).keydown(function(e) {
+
+            if(e.which == 39) {
+                  run(); 
+            }
+               if(e.which == 38 ){
+                jump(); 
+            }
+           
+                              
+           //alert("Pulsaste la tecla dentro del campo de texto con código: "+e.which);
+                               
+      }); 
+                   if (window.document.addEventListener) {
+	window.document.addEventListener("keyup", parar, false);
+}
+   
+    
+   
+
+  
+});
+
+
+
+</script>
